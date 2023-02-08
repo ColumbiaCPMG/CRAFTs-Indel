@@ -33,6 +33,6 @@ In the folder called tables.
 
 ## Data Files
 
-Sample data files for gnomAD data can be found in the folder [data_files] (/../data_files).
+Sample data files for gnomAD data can be found in the folder <a href = "https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/tree/main/data_files">data_files</a>.
 
 Please note that some data files are too large to be uploaded to GitHub so they were excluded. 
