@@ -6,7 +6,8 @@
 ## To calcuate the rAF, this would be the rAF/(mean AN for that bin)
 
 ## Here begins the code to calculate the sAF 
-## Read in the the 2022_08_23_gnomAD2.1.1_VarIDs_AC_AN_Indels.csv
+## Read in the gnomAD2.1.1_VarIDs_AC_AN_Indels_header.csv (2/17/23)
+
 
 import pandas as pd
 import optparse
@@ -48,8 +49,8 @@ with open ('gnomad_indels_with_sAF.csv', 'w') as output:
 		ALT = VarID_split[3]
 
 		## calculate the sAF
-		## Note: for gnomAD, we are finding the sAF by dividing the AN by 2 (equivalent to multiplying the AC/AN by 2) 
-		sAF = 2*(AN_file['AC'][i]/AN_file['AN'][i])
+		## Note: for gnomAD, we are finding the sAF by dividing the AC by AN 
+		sAF = int(AN_file['AC'][i])/int(AN_file['AN'][i])
 
 		variant = []
 

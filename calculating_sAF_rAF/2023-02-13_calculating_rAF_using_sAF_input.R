@@ -23,14 +23,12 @@ database = "gnomAD" #or IGM
 #For gnomAD
 if (database == "gnomAD") {
   bin_ID = fread("gnomad.exomes.r2.1.1.sites_indelsonly_allele_counts.csv")
-  indels_test = fread("20220926_gnomad_srAF_double_rare_threshold_10_4.csv")
   indels = fread("gnomad_indels_with_sAF.csv")
 }
 
 #For IGM
 if (database == "IGM") {
   bin_ID = fread("20220906_IGM__VarID_AC_AN_no_duplic_sorted_header.csv")
-  indels_test = fread("20220909_IGM_srAF_sorted.csv")
   indels = fread("IGM_indels_with_sAF.csv")
 }
 ####################################################
@@ -82,25 +80,9 @@ for (bp in bp_windows) {
   
   ## merge with the indels dataframe by CHR and GROUPID for specific bp to add the meanAN column into the big dataframe
   output = merge(output, mean_AN, by=c("CHR", groupID_bpx))
-  ## for gnomAD data: rAF is 2(allelecount/meanAN) so the threshold is 1 * 10^-4 
+  ## for gnomAD data: rAF is (allelecount/meanAN) so the threshold is 1 * 10^-4 
   ## finally calculate the rAF by dividing the AC of the bp window by the mean AN for the bp window 
   if (database == "gnomAD") {
-    if (bp == "5") {
-      output$rAF5 = 2*(output$AlleleCount_bp5 /output$meanAN_5)
-    }
-    if (bp == "10") {
-      output$rAF10 = 2*(output$AlleleCount_bp10 /output$meanAN_10)
-    }
-    if (bp == "15") {
-      output$rAF15 = 2*(output$AlleleCount_bp15 /output$meanAN_15)
-    }
-    if (bp == "20") {
-      output$rAF20 = 2*(output$AlleleCount_bp20 /output$meanAN_20)
-    }
-  }
-  
-  ## for IGM data: rAF is (allelecount/meanAN) so the threshold is 1 * 10^-4 
-  if (database == "IGM") {
     if (bp == "5") {
       output$rAF5 = (output$AlleleCount_bp5 /output$meanAN_5)
     }
@@ -114,18 +96,34 @@ for (bp in bp_windows) {
       output$rAF20 = (output$AlleleCount_bp20 /output$meanAN_20)
     }
   }
+  
+  ## for IGM data: rAF is (1/2)(allelecount/meanAN) so the threshold is 1 * 10^-4 
+  if (database == "IGM") {
+    if (bp == "5") {
+      output$rAF5 = (1/2)*(output$AlleleCount_bp5 /output$meanAN_5)
+    }
+    if (bp == "10") {
+      output$rAF10 = (1/2)*(output$AlleleCount_bp10 /output$meanAN_10)
+    }
+    if (bp == "15") {
+      output$rAF15 = (1/2)*(output$AlleleCount_bp15 /output$meanAN_15)
+    }
+    if (bp == "20") {
+      output$rAF20 = (1/2)*(output$AlleleCount_bp20 /output$meanAN_20)
+    }
+  }
 }
 
 ## sanity check:
 ## compare output with indels_test 
-indels_test$VarID = paste0(indels_test$CHR, "-", indels_test$POS, "-", indels_test$REF, "-", indels_test$ALT)
-indels_test = indels_test[order(indels_test$VarID),]
-output = output[order(output$VarID),]
+#indels_test$VarID = paste0(indels_test$CHR, "-", indels_test$POS, "-", indels_test$REF, "-", indels_test$ALT)
+#indels_test = indels_test[order(indels_test$VarID),]
+#output = output[order(output$VarID),]
 
-indels_test$raf5_diff = abs(indels_test$rAF5 - output$rAF5)
-indels_test$raf10_diff = abs(indels_test$rAF10 - output$rAF10)
-indels_test$raf15_diff = abs(indels_test$rAF15 - output$rAF15)
-indels_test$raf20_diff = abs(indels_test$rAF20 - output$rAF20)
+#indels_test$raf5_diff = abs(indels_test$rAF5 - output$rAF5)
+#indels_test$raf10_diff = abs(indels_test$rAF10 - output$rAF10)
+#indels_test$raf15_diff = abs(indels_test$rAF15 - output$rAF15)
+#indels_test$raf20_diff = abs(indels_test$rAF20 - output$rAF20)
 
 ## The biggest difference is 10^-15, which is likely due to rounding errors. 
 
