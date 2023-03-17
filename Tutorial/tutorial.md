@@ -10,6 +10,10 @@
 
 Use the sAF calculation script first to get the input for the rAF calculation script. 
 
+## Removing indels greater >50bp in length.
+
+Use the script 2023-03-06_remove_indels_gt_50bp.R to remove indels that are >50bp in length. 
+
 ## The scripts for the figures are in the folder: figures 
 
 ### Figure 1 
@@ -35,7 +39,7 @@ First use the script 2022-12-29_fig_5_input.R to get the input for the scripts 2
 
 ## Tables and Supplementary Figures 
 
-In the folder called tables. 
+In the folder called tables. Some of the scripts for the figures will also generate information for the tables/supplementaries and they are labelled accordingly.
 
 ## Data Files
 

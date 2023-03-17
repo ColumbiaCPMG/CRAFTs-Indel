@@ -8,8 +8,8 @@ library(readxl)
 library(dplyr)
 library(stringr)
 ## Read in all the files 
-IGM_sAF_rAF = fread("2022-11-22_IGM_rsaf_zeroremoved.csv", sep = ",", header = TRUE)
-gnomad_sAF_rAF = fread("20221014_gnomad_rsaf_zeroremoved.csv", sep = ",", header = TRUE)
+IGM_sAF_rAF = fread("2023-03-06_IGM_sAF_rAF_lte_50bp.csv", sep = ",", header = TRUE)
+gnomad_sAF_rAF = fread("2023-03-06_gnomAD_sAF_rAF_lte_50bp.csv", sep = ",", header = TRUE)
 clinvar = fread('ClinVar_2022_04_03.tsv', sep='\t', header = FALSE)
 
 ## Set rareness and categorizations 
@@ -38,16 +38,16 @@ other = c('Affects', '\\N', 'association',
          'protective', 'risk_factor')
 
 ## Give all the files a VarID col 
-IGM_sAF_rAF$VarID = paste0(IGM_sAF_rAF$CHR, "\t", IGM_sAF_rAF$POS, "\t", IGM_sAF_rAF$REF, "\t", IGM_sAF_rAF$ALT)
-clinvar$VarID = paste0(clinvar$V1, "\t", clinvar$V2, "\t", clinvar$V3, "\t", clinvar$V4)
+IGM_sAF_rAF$VarID = paste0(IGM_sAF_rAF$CHR, "-", IGM_sAF_rAF$POS, "-", IGM_sAF_rAF$REF, "-", IGM_sAF_rAF$ALT)
+clinvar$VarID = paste0(clinvar$V1, "-", clinvar$V2, "-", clinvar$V3, "-", clinvar$V4)
 
 ## Merge sAF and rAF with clinvar and ONLY KEEP THE ROWS THAT ARE IN CLINVAR 
 gnomad_in_clinvar = merge(gnomad_sAF_rAF, clinvar, by = "VarID") ## 27559
 IGM_in_clinvar = merge(IGM_sAF_rAF, clinvar, by = "VarID") ## 13217 
 
 ## Remove any duplicates, if any 
-gnomad_in_clinvar = distinct(gnomad_in_clinvar$VarID) ## 27559
-IGM_in_clinvar = distinct(IGM_in_clinvar$VarID) #13217
+gnomad_in_clinvar = distinct(gnomad_in_clinvar) ## 27559
+IGM_in_clinvar = distinct(IGM_in_clinvar) #13217
 
 ###########################################################################
 ## How many indels in different classifications have a common rAF for each bp window?

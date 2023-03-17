@@ -9,8 +9,8 @@ library(dplyr)
 ### rare is 1 * 10^-4 for gnomAD too because we multiplied the sAF/rAF of the dataset by 2 to account for the AN value discrepancy 
 rare = (1 * 10^-4)
 
-gnomad_indels = read.csv("2022-12-30_gnomAD_sAF_rAF.csv", sep=',', header = TRUE)
-IGM_indels = read.csv("2022-12-30_IGM_sAF_rAF.csv", sep=',', header = TRUE)
+gnomad_indels = read.csv("2023-03-06_gnomAD_sAF_rAF_lte_50bp.csv", sep=',', header = TRUE)
+IGM_indels = read.csv("2023-03-06_IGM_sAF_rAF_lte_50bp.csv", sep=',', header = TRUE)
 
 ## total number of indels rare by sAF 
 tot_rare_sAF_gnomad = nrow(gnomad_indels %>% filter(sAF <= rare))

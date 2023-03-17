@@ -114,17 +114,6 @@ for (bp in bp_windows) {
   }
 }
 
-## sanity check:
-## compare output with indels_test 
-#indels_test$VarID = paste0(indels_test$CHR, "-", indels_test$POS, "-", indels_test$REF, "-", indels_test$ALT)
-#indels_test = indels_test[order(indels_test$VarID),]
-#output = output[order(output$VarID),]
-
-#indels_test$raf5_diff = abs(indels_test$rAF5 - output$rAF5)
-#indels_test$raf10_diff = abs(indels_test$rAF10 - output$rAF10)
-#indels_test$raf15_diff = abs(indels_test$rAF15 - output$rAF15)
-#indels_test$raf20_diff = abs(indels_test$rAF20 - output$rAF20)
-
 ## The biggest difference is 10^-15, which is likely due to rounding errors. 
 
 ## format CSV output 
