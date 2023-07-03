@@ -19,4 +19,4 @@ Source: https://gnomad.broadinstitute.org
 Version: v2.1.1
 
 # Tutorial 
-<a href="https://github.com/sy-codes/RegionalAlleleFrequency/blob/main/tutorial.md" target="_blank">Begin Here</a>
+<a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/tutorial.md" target="_blank">Begin Here</a>
