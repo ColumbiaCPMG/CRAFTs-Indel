@@ -75,7 +75,7 @@ chroms = c("X", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "
 ## make chroms an ordered factor 
 chroms <- factor (chroms, levels = chroms)
 
-sAF_lo = 10^-4 
+rAF_lo = 10^-4 
 
 ###########################################################################################
 ###########################################################################################
@@ -98,23 +98,23 @@ for (i in bp_range) {
     assign(df_2_rAF_hi_chrom, nrow(get(df_2_rAF_hi) %>% filter(CHR == j)))
     assign(df_3_rAF_hi_chrom, nrow(get(df_3_rAF_hi) %>% filter(CHR == j)))
   
-  ## filter for sAF_lo sAF indels within each chromosome 
-    df_1_sAF_lo_chrom = paste0("df_1_sAF_lo_chrom_", j, "_bp_", i)
-    df_2_sAF_lo_chrom = paste0("df_2_sAF_lo_chrom_", j, "_bp_", i)
-    df_3_sAF_lo_chrom = paste0("df_3_sAF_lo_chrom_", j, "_bp_", i)
+  ## filter for rAF_lo sAF indels within each chromosome 
+    df_1_rAF_lo_chrom = paste0("df_1_rAF_lo_chrom_", j, "_bp_", i)
+    df_2_rAF_lo_chrom = paste0("df_2_rAF_lo_chrom_", j, "_bp_", i)
+    df_3_rAF_lo_chrom = paste0("df_3_rAF_lo_chrom_", j, "_bp_", i)
     
-    assign(df_1_sAF_lo_chrom, nrow(df_1 %>% filter(sAF <= sAF_lo) %>% filter(CHR == j)))
-    assign(df_2_sAF_lo_chrom, nrow(df_2 %>% filter(sAF <= sAF_lo) %>% filter(CHR == j)))
-    assign(df_3_sAF_lo_chrom, nrow(df_3 %>% filter(sAF <= sAF_lo) %>% filter(CHR == j)))
+    assign(df_1_rAF_lo_chrom, nrow(df_1 %>% filter(sAF <= rAF_lo) %>% filter(CHR == j)))
+    assign(df_2_rAF_lo_chrom, nrow(df_2 %>% filter(sAF <= rAF_lo) %>% filter(CHR == j)))
+    assign(df_3_rAF_lo_chrom, nrow(df_3 %>% filter(sAF <= rAF_lo) %>% filter(CHR == j)))
     
-  ## find percentage of rAF_hi/sAF_lo * 100
+  ## find percentage of rAF_hi/rAF_lo * 100
     df_1_prct = paste0("df_1_prct_chrom", j, "_bp_", i)
     df_2_prct = paste0("df_2_prct_chrom", j, "_bp_", i)
     df_3_prct = paste0("df_3_prct_chrom", j, "_bp_", i)
     
-    assign(df_1_prct, get(df_1_rAF_hi_chrom)/get(df_1_sAF_lo_chrom) * 100 )
-    assign(df_2_prct, get(df_2_rAF_hi_chrom)/get(df_2_sAF_lo_chrom) * 100 )
-    assign(df_3_prct, get(df_3_rAF_hi_chrom)/get(df_3_sAF_lo_chrom) * 100 )
+    assign(df_1_prct, get(df_1_rAF_hi_chrom)/get(df_1_rAF_lo_chrom) * 100 )
+    assign(df_2_prct, get(df_2_rAF_hi_chrom)/get(df_2_rAF_lo_chrom) * 100 )
+    assign(df_3_prct, get(df_3_rAF_hi_chrom)/get(df_3_rAF_lo_chrom) * 100 )
     
     
   }
@@ -156,7 +156,7 @@ rAF_hi_chr_distr_plot1 = ggplot(rAF_hi_chr_distr_df1, aes(x)) +
   geom_line(aes(y = y3, color = "30bp window"), group = 1) +
   geom_line(aes(y = y4, color = "40bp window"), group = 1) +
   ylim (0, 30) +
-  labs (title = str_wrap(paste0("Percentage of sAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_1, " dataset"), width = 60),
+  labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_1, " dataset"), width = 60),
         x = "Chromosomes",
         y = "Percentage")
 
@@ -166,7 +166,7 @@ rAF_hi_chr_distr_plot2 = ggplot(rAF_hi_chr_distr_df2, aes(x)) +
   geom_line(aes(y = y3, color = "30bp window"), group = 1) +
   geom_line(aes(y = y4, color = "40bp window"), group = 1) +
   ylim (0,30) +
-  labs (title = str_wrap(paste0("Percentage of sAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_2, " dataset"), width = 60),
+  labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_2, " dataset"), width = 60),
         x = "Chromosomes",
         y = "Percentage")
 
@@ -176,7 +176,7 @@ rAF_hi_chr_distr_plot3 = ggplot(rAF_hi_chr_distr_df3, aes(x)) +
   geom_line(aes(y = y3, color = "30bp window"), group = 1) +
   geom_line(aes(y = y4, color = "40bp window"), group = 1) +
   ylim (0,30) +
-  labs (title = str_wrap(paste0("Percentage of sAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_3, " dataset"), width = 60),
+  labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_3, " dataset"), width = 60),
         x = "Chromosomes",
         y = "Percentage")
 
