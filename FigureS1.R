@@ -151,30 +151,30 @@ rAF_hi_chr_distr_df2 = data.frame(x = chroms, y1 = df_2_list_bp10, y2 = df_2_lis
 rAF_hi_chr_distr_df3 = data.frame(x = chroms, y1 = df_3_list_bp10, y2 = df_3_list_bp20, y3 = df_3_list_bp30, y4 = df_3_list_bp40)
 
 rAF_hi_chr_distr_plot1 = ggplot(rAF_hi_chr_distr_df1, aes(x)) +
-  geom_line(aes(y = y1, color = "10bp window"), group = 1) +
-  geom_line(aes(y = y2, color = "20bp window"), group = 1) +
-  geom_line(aes(y = y3, color = "30bp window"), group = 1) +
-  geom_line(aes(y = y4, color = "40bp window"), group = 1) +
+  geom_line(aes(y = y1, color = "10bp region"), group = 1) +
+  geom_line(aes(y = y2, color = "20bp region"), group = 1) +
+  geom_line(aes(y = y3, color = "30bp region"), group = 1) +
+  geom_line(aes(y = y4, color = "40bp region"), group = 1) +
   ylim (0, 30) +
   labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_1, " dataset"), width = 60),
         x = "Chromosomes",
         y = "Percentage")
 
 rAF_hi_chr_distr_plot2 = ggplot(rAF_hi_chr_distr_df2, aes(x)) +
-  geom_line(aes(y = y1, color = "10bp window"), group = 1) +
-  geom_line(aes(y = y2, color = "20bp window"), group = 1) +
-  geom_line(aes(y = y3, color = "30bp window"), group = 1) +
-  geom_line(aes(y = y4, color = "40bp window"), group = 1) +
+  geom_line(aes(y = y1, color = "10bp region"), group = 1) +
+  geom_line(aes(y = y2, color = "20bp region"), group = 1) +
+  geom_line(aes(y = y3, color = "30bp region"), group = 1) +
+  geom_line(aes(y = y4, color = "40bp region"), group = 1) +
   ylim (0,30) +
   labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_2, " dataset"), width = 60),
         x = "Chromosomes",
         y = "Percentage")
 
 rAF_hi_chr_distr_plot3 = ggplot(rAF_hi_chr_distr_df3, aes(x)) +
-  geom_line(aes(y = y1, color = "10bp window"), group = 1) +
-  geom_line(aes(y = y2, color = "20bp window"), group = 1) +
-  geom_line(aes(y = y3, color = "30bp window"), group = 1) +
-  geom_line(aes(y = y4, color = "40bp window"), group = 1) +
+  geom_line(aes(y = y1, color = "10bp region"), group = 1) +
+  geom_line(aes(y = y2, color = "20bp region"), group = 1) +
+  geom_line(aes(y = y3, color = "30bp region"), group = 1) +
+  geom_line(aes(y = y4, color = "40bp region"), group = 1) +
   ylim (0,30) +
   labs (title = str_wrap(paste0("Percentage of rAF_lo Indels that are rAF_hi Across Chromosomes in the ", df_name_3, " dataset"), width = 60),
         x = "Chromosomes",
