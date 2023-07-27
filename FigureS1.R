@@ -22,7 +22,7 @@ library(ggpubr)
 ###########################################################################################
 ###########################################################################################
 
-setwd("/Users/User_1/Desktop/rAF_project_2/")
+setwd("")
 
 ## Read in files 
 # rAF_hi_indels_10bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
