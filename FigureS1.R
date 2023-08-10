@@ -25,7 +25,7 @@ library(ggh4x)
 ###########################################################################################
 ###########################################################################################
 
-setwd("")
+setwd("/Users/User_1/Desktop/rAF_project_2")
 
 ## Read in files 
 rAF_hi_indels_10bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
@@ -190,7 +190,7 @@ options(repr.plot.width = 10, repr.plot.height = 8)
 df_scales <- data.frame(
   Panel = c("gnomad", "IGM", "UK.BB"), 
   ymin = c(0, 0, 0), #sets the y min for each plot
-  ymax = c(25, 30, 10), #sets the y max for each plot 
+  ymax = c(30, 30, 30), #sets the y max for each plot 
   n = c(2, 2, 2) #sets the number of axis ticks displayed 
 )
 df_scales <- split(df_scales, df_scales$Panel) #makes the y lim scales independent for each panel 
