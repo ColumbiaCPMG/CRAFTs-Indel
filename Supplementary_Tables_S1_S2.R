@@ -1,15 +1,17 @@
-seqDB = fread("")
+seqDB = fread("/Users/sy3115/Documents/Data/rAF_paper/finalized_project_data/2023-05-31_seqDB_exome_genome_in_dragendb.csv")
 
-fam = fread("")
+fam = fread("/Users/sy3115/Documents/Data/rAF_paper/finalized_project_data/final_dev/2023-03-24_11-47-14_IGM_n39367_indels_existing.sample.txt")
 
-## supplementary table S1: exome kit
+#### Table S1: Exome Kits
 exomekits = as.data.frame(table(fam$V8))
-exomekits
+exomekits 
 
 merge = merge(seqDB, fam, by.x = "sample_internal_name", by.y = "V1") 
 select_broadphenotype = distinct(merge %>% select("sample_internal_name", "BroadPhenotype"))
 
-## supplementary table S2: broad phenotypes 
+
+
+#### Table S2: Broad Phenotypes 
 broadpheno = as.data.frame(table(select_broadphenotype$BroadPhenotype))
 broadpheno
 

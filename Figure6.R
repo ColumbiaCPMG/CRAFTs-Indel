@@ -7,10 +7,10 @@ library(stringr)
 rare = 10^-4
 bp_range = c("10", "20", "30", "40")
 
-input_df1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv", header = TRUE)
-input_df2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv", header = TRUE)
+input_df1 = fread("/Users/sy3115/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/rAF_scripts_and_inputs/PublicationReady_Data/gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv", header = TRUE)
+input_df2 = fread("/Users/sy3115/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/rAF_scripts_and_inputs/PublicationReady_Data/IGM/2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv", header = TRUE)
 
-clinvar = fread('ClinVar_2023_03_18.tsv', sep='\t', header = FALSE, quote="")
+clinvar = fread('/Users/sy3115/Desktop/ClinVar_2023_03_18.tsv', sep='\t', header = FALSE, quote="")
 clinvar$VarID = paste0(clinvar$V1, "-", clinvar$V2, "-", clinvar$V3, "-", clinvar$V4)
 clinvar = clinvar %>% select("VarID", "V10")
 
@@ -37,14 +37,14 @@ other = c('Affects', '\\N', 'association',
           'protective', 'risk_factor')
 
 
-effects = fread("2023-04-21_IGM_n39367_indels_genotypes_effects.csv", header = TRUE)
+effects = fread("/Users/sy3115/Documents/Data/rAF_paper/finalized_project_data/final_dev/2023-04-21_IGM_n39367_indels_genotypes_effects.csv", header = TRUE)
 colnames(effects) = c("VarID", "Effect")
 
-sample_name_gene_name = fread("2023-03-24_11-47-14_IGM_n39367_indels_genotypes_selectcols.csv") 
+sample_name_gene_name = fread("/Users/sy3115/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/rAF_scripts_and_inputs/PublicationReady_Data/IGM/2023-03-24_11-47-14_IGM_n39367_indels_genotypes_selectcols.csv") 
 colnames(sample_name_gene_name) = c("VarID", "geneName", "sampleName", "coveredCtrl", "AC")
 
 
-annotations = distinct(fread ("2023-04-21_IGM_genename_gnomadpli_gnomadloeuf_omimdisease.csv")) #18231 
+annotations = distinct(fread ("/Users/sy3115/Documents/Data/rAF_paper/finalized_project_data/final_dev/2023-04-21_IGM_genename_gnomadpli_gnomadloeuf_omimdisease.csv")) #18231 
 colnames(annotations) = c("geneName", "pLI", "oe_lof_upper", "OMIM_disease")
 
 annotations[geneName == "'HTT'"]$OMIM_disease = "Huntington disease, 143100 (3), Autosomal dominant"
