@@ -7,12 +7,15 @@ library(stringr)
 rare = 10^-4
 bp_range = c("10", "20", "30", "40")
 
-input_df1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv", header = TRUE)
-input_df2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv", header = TRUE)
+setwd("")
 
-clinvar = fread('ClinVar_2023_03_18.tsv', sep='\t', header = FALSE, quote="")
+input_df1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv", header = TRUE)
+input_df2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv", header = TRUE)
+
+#clinvar = fread('ClinVar_2023_03_18.tsv', sep='\t', header = FALSE, quote="")
+clinvar = fread('clinvar/GRCh37_clinvar_20230910.tsv', sep='\t', header = FALSE, quote="")
 clinvar$VarID = paste0(clinvar$V1, "-", clinvar$V2, "-", clinvar$V3, "-", clinvar$V4)
-clinvar = clinvar %>% select("VarID", "V10")
+clinvar = clinvar %>% select("VarID", "V5")
 
 benign = c('Benign', 'Benign/Likely_benign', 'Benign|_drug_response')
 LB = c('Likely_benign', 'Likely_benign|_drug_response|_other',
@@ -37,10 +40,10 @@ other = c('Affects', '\\N', 'association',
           'protective', 'risk_factor')
 
 
-effects = fread("2023-04-21_IGM_n39367_indels_genotypes_effects.csv", header = TRUE)
-colnames(effects) = c("VarID", "Effect")
+#effects = fread("2023-04-21_IGM_n39367_indels_genotypes_effects.csv", header = TRUE)
+#colnames(effects) = c("VarID", "Effect")
 
-sample_name_gene_name = fread("2023-03-24_11-47-14_IGM_n39367_indels_genotypes_selectcols.csv") 
+sample_name_gene_name = fread("IGM/2023-03-24_11-47-14_IGM_n39367_indels_genotypes_selectcols.csv") 
 colnames(sample_name_gene_name) = c("VarID", "geneName", "sampleName", "coveredCtrl", "AC")
 
 
@@ -52,12 +55,14 @@ annotations[geneName == "'GLTSCR1'"]$geneName = "BICRA"
 annotations[geneName == "'FAM46A'"]$geneName = "TENT5A"
 
 merge1_df1 = left_join(input_df1, clinvar, by="VarID")
-merge2_df1 = merge(merge1_df1, effects, by = "VarID")
+#merge2_df1 = merge(merge1_df1, effects, by = "VarID")
+merge2_df1 = merge1_df1
 merge3_df1 = merge(merge2_df1, sample_name_gene_name, by = "VarID")
 merge4_df1 = merge(merge3_df1, annotations, by= "geneName")
 
 merge1_df2 = left_join(input_df2, clinvar, by="VarID")
-merge2_df2 = merge(merge1_df2, effects, by = "VarID")
+#merge2_df2 = merge(merge1_df2, effects, by = "VarID")
+merge2_df2 = merge1_df2
 merge3_df2 = merge(merge2_df2, sample_name_gene_name, by = "VarID")
 merge4_df2 = merge(merge3_df2, annotations, by= "geneName")
 
@@ -70,7 +75,6 @@ VarID_of_interest = "4-1980558-GC-G"
 ## identify the variant of interest within the indels dataframe 
 indel_of_interest_df1 = indels_df1[VarID == VarID_of_interest]
 indel_of_interest_df2 = indels_df2[VarID == VarID_of_interest]
-
 
 for (i in bp_range) {
   # get groupID 
@@ -97,23 +101,18 @@ for (i in bp_range) {
   
   assign(indels_in_GID, indels_df2 %>% filter(get(GID_var) == get(temp_GID)))
 }
+  
 
 
-view10_df1 = distinct(indels_in_GID_df_1_bp10 %>% select("VarID", "sAF", "rAF_bp10", "V10", "GID_bp10"))
-view20_df1 = distinct(indels_in_GID_df_1_bp20 %>% select("VarID", "sAF", "rAF_bp20", "V10", "GID_bp20"))
-view30_df1 = distinct(indels_in_GID_df_1_bp30 %>% select("VarID", "sAF", "rAF_bp30", "V10", "GID_bp30"))
-view40_df1 = distinct(indels_in_GID_df_1_bp40 %>% select("VarID", "sAF", "rAF_bp40", "V10", "GID_bp40"))
+view10_df1 = distinct(indels_in_GID_df_1_bp10 %>% select("VarID", "sAF", "rAF_bp10", "V5", "GID_bp10"))
+view20_df1 = distinct(indels_in_GID_df_1_bp20 %>% select("VarID", "sAF", "rAF_bp20", "V5", "GID_bp20"))
+view30_df1 = distinct(indels_in_GID_df_1_bp30 %>% select("VarID", "sAF", "rAF_bp30", "V5", "GID_bp30"))
+view40_df1 = distinct(indels_in_GID_df_1_bp40 %>% select("VarID", "sAF", "rAF_bp40", "V5", "GID_bp40"))
 
-view10_df2 = distinct(indels_in_GID_df_2_bp10 %>% select("VarID", "sAF", "rAF_bp10", "V10", "GID_bp10"))
-view20_df2 = distinct(indels_in_GID_df_2_bp20 %>% select("VarID", "sAF", "rAF_bp20", "V10", "GID_bp20"))
-view30_df2 = distinct(indels_in_GID_df_2_bp30 %>% select("VarID", "sAF", "rAF_bp30", "V10", "GID_bp30"))
-view40_df2 = distinct(indels_in_GID_df_2_bp40 %>% select("VarID", "sAF", "rAF_bp40", "V10", "GID_bp40"))
-
-
-
-
-
-
+view10_df2 = distinct(indels_in_GID_df_2_bp10 %>% select("VarID", "sAF", "rAF_bp10", "V5", "GID_bp10"))
+view20_df2 = distinct(indels_in_GID_df_2_bp20 %>% select("VarID", "sAF", "rAF_bp20", "V5", "GID_bp20"))
+view30_df2 = distinct(indels_in_GID_df_2_bp30 %>% select("VarID", "sAF", "rAF_bp30", "V5", "GID_bp30"))
+view40_df2 = distinct(indels_in_GID_df_2_bp40 %>% select("VarID", "sAF", "rAF_bp40", "V5", "GID_bp40"))
 
 
 

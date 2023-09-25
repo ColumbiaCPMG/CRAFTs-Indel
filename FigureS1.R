@@ -25,27 +25,27 @@ library(ggh4x)
 ###########################################################################################
 ###########################################################################################
 
-setwd("/Users/User_1/Desktop/rAF_project_2")
+setwd("")
 
 ## Read in files 
-rAF_hi_indels_10bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_20bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_30bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_40bp_df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_10bp_df_1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_20bp_df_1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_30bp_df_1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_40bp_df_1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
 
-rAF_hi_indels_10bp_df_2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_20bp_df_2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_30bp_df_2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_40bp_df_2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_10bp_df_2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_20bp_df_2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_30bp_df_2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_40bp_df_2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
 
-rAF_hi_indels_10bp_df_3 = fread("UK.BB.exomes.430k.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_20bp_df_3 = fread("UK.BB.exomes.430k.sites_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_30bp_df_3 = fread("UK.BB.exomes.430k.sites_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
-rAF_hi_indels_40bp_df_3 = fread("UK.BB.exomes.430k.sites_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_10bp_df_3 = fread("UKBB/UK.BB.exomes.430k.sites_indelsonly_rAF_bp10_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_20bp_df_3 = fread("UKBB/UK.BB.exomes.430k.sites_indelsonly_rAF_bp20_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_30bp_df_3 = fread("UKBB/UK.BB.exomes.430k.sites_indelsonly_rAF_bp30_rAF_hiIndels.lt50bp.csv")
+rAF_hi_indels_40bp_df_3 = fread("UKBB/UK.BB.exomes.430k.sites_indelsonly_rAF_bp40_rAF_hiIndels.lt50bp.csv")
 
-df_1 = fread("gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv")
-df_2 = fread("2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv")
-df_3 = fread("UK.BB.exomes.430k.sites_indelsonly_rAF_lt50bp.csv")
+df_1 = fread("gnomAD/gnomad.exomes.r2.1.1.sites_indelsonly_rAF_lt50bp.csv")
+df_2 = fread("IGM/2023-03-23_IGM_n39367_indelsonly_rAF_lt50bp.csv")
+df_3 = fread("UKBB/UK.BB.exomes.430k.sites_indelsonly_rAF_lt50bp.csv")
 
 ## split varID 
 rAF_hi_indels_10bp_df_1 = rAF_hi_indels_10bp_df_1 %>% separate(VarID, c("CHR", "POS", "REF", "ALT"))
@@ -154,9 +154,6 @@ rAF_hi_chr_distr_df1 = data.frame(x = chroms, y1 = df_1_list_bp10, y2 = df_1_lis
 rAF_hi_chr_distr_df2 = data.frame(x = chroms, y1 = df_2_list_bp10, y2 = df_2_list_bp20, y3 = df_2_list_bp30, y4 = df_2_list_bp40)
 
 rAF_hi_chr_distr_df3 = data.frame(x = chroms, y1 = df_3_list_bp10, y2 = df_3_list_bp20, y3 = df_3_list_bp30, y4 = df_3_list_bp40)
-
-
-
 
 
 ###########################################################################################

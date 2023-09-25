@@ -1,6 +1,3 @@
-# Contributors 
-Hila Milo Rasouly, Sarath Babu Krishna Murthy, Shiraz Bheda, Sandy Yang, Haiyue Li, Amir Yaghoobi, Joshua E. Motelow, Nick Ren, Ali G. Gharavi.
-
 # Introduction to regional allele frequency (rAF)
 To increase the reliability of allele frequency values of insertion-deletion polymorphisms (indels) in genetic diagnostics and gene discovery efforts, we proposed the use of regional allele frequency (rAF) in lieu of population allele frequency (AF or sAF). Regional allele frequency takes into account the number of indels within a base-pair window (10bp, 20bp, 30bp, 40bp) in order to offset errors in AF estimations from differences in mapping and variant-calling methods. 
 
