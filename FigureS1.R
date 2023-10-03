@@ -204,10 +204,12 @@ combined_plot<- ggplot(combined_data_long, aes(x, value, color = variable, group
   ggh4x::facetted_pos_scales(
     y = scales
   )+
-labs(x = "Chromosome", y = "Percentage", title = "Percentage of sAF-lo Indels that are rAF-hi Across Chromosomes in the gnomAD, IGM, and UK.BB Data Sets.") +
-  labs(color = "Region Length") +
+labs(x = "Chromosome", y = "Percentage", title = "Percentage of sAF-lo Indels that are rAF-hi Across Chromosomes in the gnomAD, IGM, and UKBB Data Sets.") +
+  labs(color = "Range") +
   #removes grid lines 
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
+
+setwd("")
 
 ggsave("FigS1.jpg", width = 40, height = 20, units = c("cm"), dpi = 300)

@@ -11,16 +11,15 @@
 3. Figure 4: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure4_Supplementary_Table_S6.ipynb" target="_blank">Figure4_Supplementary_Table_S6.ipynb</a>
 4. Figure 5: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure5_Supplementary_Tables_S7_Excels_1_2_3.ipynb" target="_blank">Figure5_Supplementary_Tables_S7_Excels_1_2_3.ipynb</a>
 5. Figure 6: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure6.R" target="_blank">Figure6.R</a>
-6. Figure 7: 
-    a. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure7_Circleplot.R" target="_blank">Figure7_Circleplot.R</a>
-    b. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure7_venndiagram_in_LCR.R" target="_blank">Figure7_venndiagram_in_LCR.R</a>
-    c. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Figure7_venndiagram_not_LCR.R" target="_blank">Figure7_venndiagram_not_LCR.R</a>
 
 ## Main Tables: 
 1. Table 2: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Tables_2_S8_S9.ipynb" target="_blank">Tables_2_S8_S9.ipynb</a>
 
 ## Supplementary Figures: 
 1. Supplementary Figure 1: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS1.R" target="_blank">FigureS1.R</a>
+2. Supplementary Figure 2: 
+    b. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_in_LCR.R" target="_blank">FigureS2_venndiagram_in_LCR.R</a>
+    c. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_not_LCR.R" target="_blank">FigureS2_venndiagram_not_LCR.R</a>
 
 ## Supplementary Tables: 
 1. Supplementary Table S1: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Supplementary_Tables_S1_S2.R" target="_blank">Supplementary_Tables_S1_S2.R</a>
