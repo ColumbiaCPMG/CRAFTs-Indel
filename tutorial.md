@@ -18,8 +18,10 @@
 ## Supplementary Figures: 
 1. Supplementary Figure 1: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS1.R" target="_blank">FigureS1.R</a>
 2. Supplementary Figure 2: 
-    b. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_in_LCR.R" target="_blank">FigureS2_venndiagram_in_LCR.R</a>
-    c. <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_not_LCR.R" target="_blank">FigureS2_venndiagram_not_LCR.R</a>
+    * Venn Diagram of bps in LCR:
+        * <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_in_LCR.R" target="_blank">FigureS2_venndiagram_in_LCR.R</a>
+    * Venn Diagram of bps not in LCR:
+        * <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/FigureS2_venndiagram_not_LCR.R" target="_blank">FigureS2_venndiagram_not_LCR.R</a>
 
 ## Supplementary Tables: 
 1. Supplementary Table S1: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Supplementary_Tables_S1_S2.R" target="_blank">Supplementary_Tables_S1_S2.R</a>
