@@ -1,5 +1,5 @@
 # Paper
-<a href="https://link.springer.com/epdf/10.1007/s10142-024-01358-3?sharing_token=fOQMmH39idz4_03JoizO9_e4RwlQNchNByi7wbcMAY7f5dw06VKtYPRgIiI2hEdIVysBRgLtOXQj7PPVNBpV9XhVjDqC4X0tew3FuhV8b4H1JpL76P-OQKBVHujeQyrAO6wYZnVMA7sGMKyoIsZhhPiWIELt9URtLTWzkd8llcU%3D" target="_blank">Assisting theanalysis ofinsertions anddeletions using regional allele frequencies</a>
+<a href="https://link.springer.com/epdf/10.1007/s10142-024-01358-3?sharing_token=fOQMmH39idz4_03JoizO9_e4RwlQNchNByi7wbcMAY7f5dw06VKtYPRgIiI2hEdIVysBRgLtOXQj7PPVNBpV9XhVjDqC4X0tew3FuhV8b4H1JpL76P-OQKBVHujeQyrAO6wYZnVMA7sGMKyoIsZhhPiWIELt9URtLTWzkd8llcU%3D" target="_blank">Assisting the analysis of insertions and deletions using regional allele frequencies</a>
 
 # Contributors
 Sarath Babu Krishna Murthy, Sandy Yang, Shiraz Bheda, Nikita Tomar, Haiyue Li, Amir Yaghoobi, Atlas Khan, Krzysztof Kiryluk, Joshua E. Motelow, Nick Ren, Ali G. Gharavi, Hila Milo Rasouly.
