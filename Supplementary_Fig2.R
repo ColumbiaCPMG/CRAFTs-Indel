@@ -212,4 +212,4 @@ labs(x = "Chromosome", y = "Percentage", title = "Percentage of sAF-lo Indels th
 
 setwd("")
 
-ggsave("FigS1.jpg", width = 40, height = 20, units = c("cm"), dpi = 300)
+ggsave("FigS2.jpg", width = 40, height = 20, units = c("cm"), dpi = 300)
