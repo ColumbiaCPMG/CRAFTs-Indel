@@ -32,7 +32,7 @@
 5. Supplementary Table S5: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Table_2_Supplementary_Tables_S5_Excels_1_2_3.ipynb" target="_blank">Table_2_Supplementary_Tables_S5_Excels_1_2_3.ipynb</a> 
 6. Supplementary Table S6: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Supplementary_Table_6.R" target="_blank">Supplementary_Table_6.R</a> 
 7. Supplementary Table S8: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Table_3_Supplementary_S8.ipynb" target="_blank">Table_3_Supplementary_S8.ipynb</a>
-8. Supplementary Table S9: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Supplementary_Table_9.ipynb" target="_blank">Supplementary_Table_9.ipynb</a>
+8. Supplementary Table S9: <a href="https://github.com/ColumbiaCPMG/RegionalAlleleFrequency/blob/main/Supplementary_Table_S9.ipynb" target="_blank">Supplementary_Table_S9.ipynb</a>
 
 
 ## Supplementary Excel Files: 
