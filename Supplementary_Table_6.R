@@ -4,7 +4,7 @@ library(readxl)
 library(dplyr)
 library(stringr)
 
-setwd("/Users/sy3115/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/rAF_scripts_and_inputs/PublicationReady_Data/")
+setwd("")
 
 ## Read in file
 
@@ -136,7 +136,7 @@ table_out$prct_PLP_gt1_only = paste0(round(PLP_gt1_only/tot, 2) * 100, "%")
 output = table_out %>% select(df, tot, PLP_1_w_others, prct_PLP_1_w_others, PLP_gt1_w_others, prct_PLP_gt1_w_others, PLP_1_only, prct_PLP_1_only, PLP_gt1_only, prct_PLP_gt1_only )
 colnames(output) = c("Database", "Total bins with at least 1 rAF-hi P/LP indels", "Bins with 1 rAF-hi P/LP indel and other indels", "Percent of bins with 1 rAF-hi P/LP indel and other indels", "Bins with more than 1 rAF-hi P/LP indels and other indels", "Percent of bins with more than 1 rAF-hi P/LP indels and other indels", "Bins with only 1 rAF-hi P/LP indel", "Percent of bins with only 1 rAF-hi P/LP indel", "Bins with more than 1 rAF-hi P/LP indels and no other types of indels", "Percent of bins with more than 1 rAF-hi P/LP indels and no other types of indels")
 
-fwrite(output, "/Users/sy3115/Documents/Data/rAF_paper/finalized_project_data/PublicationReady/percentage_of_reclassification.csv", row.names = F, quote = F)
+fwrite(output, "percentage_of_reclassification.csv", row.names = F, quote = F)
 
 
 
